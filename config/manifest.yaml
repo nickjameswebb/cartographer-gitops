@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: workload
-        image: us.gcr.io/daisy-284300/nwebb/alm/cartographer/workloads-dev@sha256:e12c815257cab5ea5e0d1258384aae4569c524d427b53e15fcb53042be4e07a3
+        image: us.gcr.io/daisy-284300/nwebb/alm/cartographer/workloads-dev@sha256:22a70af15b37e46d0e6465f751f17ce8c03eab3bc9bc34cde694461d4b3ea6e0
         securityContext:
           runAsUser: 1000
       imagePullSecrets:
