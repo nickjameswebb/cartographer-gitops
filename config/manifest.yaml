@@ -1,0 +1,22 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: dev
+  labels:
+    app.kubernetes.io/part-of: hello-world
+    carto.run/workload-name: dev
+    app.kubernetes.io/component: run
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+    spec:
+      containers:
+      - name: workload
+        image: us.gcr.io/daisy-284300/nwebb/alm/cartographer/workloads-dev@sha256:e12c815257cab5ea5e0d1258384aae4569c524d427b53e15fcb53042be4e07a3
+        securityContext:
+          runAsUser: 1000
+      imagePullSecrets:
+      - name: registry-credentials
+
