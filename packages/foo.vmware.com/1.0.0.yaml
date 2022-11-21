@@ -2,7 +2,7 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: foo
+  name: foo.vmware.com.1.0.0
 spec:
   refName: foo.vmware.com
   version: 1.0.0
