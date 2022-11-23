@@ -1,0 +1,26 @@
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: foo.vmware.com.20221123.2217.47
+spec:
+  refName: foo.vmware.com
+  version: 20221123.2217.47
+  releaseNotes: |
+        Initial release of the simple app package
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: us.gcr.io/daisy-284300/nwebb/alm/cartographer/workloads-bundle
+      template:
+      - ytt:
+          paths:
+          - "config/"
+      - kbld:
+          paths:
+          - ".imgpkg/images.yml"
+          - "-"
+      deploy:
+      - kapp: {}
+
